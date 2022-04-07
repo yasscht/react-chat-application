@@ -1,4 +1,18 @@
+import { useState } from "react";
 const MessageForm = () => {
-  return <div>Message Form</div>;
+  const [value, setValue] = useState("");
+  const handleSubmit = () => {};
+  const handleChange = () => {};
+  return (
+    <form className="message-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="message-input"
+        placeholder="Send a message..."
+        value={value}
+        onChange={handleChange}
+      />
+    </form>
+  );
 };
 export default MessageForm;
