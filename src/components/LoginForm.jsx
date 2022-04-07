@@ -3,6 +3,7 @@ import axios from "axios";
 const LoginForm = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(username, password);
@@ -18,11 +19,16 @@ const LoginForm = () => {
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
       window.location.reload();
-    } catch (error) {}
+    } catch (error) {
+      setError("incorrect credentiels");
+    }
   };
   return (
     <div className="wrapper">
       <div className="form">
+        <div align="center" style={{ color: "red" }}>
+          {error}
+        </div>
         <h1 className="title">Login</h1>
         <form onSubmit={handleSubmit}>
           <input
